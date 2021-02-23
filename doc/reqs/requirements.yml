@@ -1,0 +1,192 @@
+general:
+    project_name: SwissChessLeague
+    author: Compote team
+
+    history:
+        - author: Dmitriy Sadovyi
+          version: 0.1
+          description: Initial doc creation
+
+    description: Chess project to support swiss-system tournaments
+
+domain:
+    name: Chess
+    stakeholders:
+        - name: organizer
+          description: Manager of the tournament
+          responsibility: To create and manage the tournaments
+        - name: team-leader
+          description: selected team member from the team as leader
+          responsibility: register command for tournament
+        - name: participant
+          description: participant of tournament as a part of the team
+          responsibility: play the game with opponent from another team
+        - name: spectator
+          description: any user who is not participating in the tournament right now
+          responsibility: select any live game to spectate
+        - name: support
+          description: admin account to manage tournaments
+          responsibility: handle complicated cases that are not possible to deal with organizer account
+
+releases:
+    - name: Basic_1
+      description: basic functionality with simplest UI
+
+functional_requirements:
+    - name: League Space
+      description: manage tournaments within separate space
+      requirements:
+          - id: fr.space.01
+            description: As a tournament organizer I want to have separate space to manage tournaments
+            release: Basic_1
+          - id: fr.space.02
+            description: As a tournament organizer I want to have ability to restrict access to the space for set of users
+            release:
+          - id : fr.space.03
+            description: As a participant or spectator I want to see available spaces in the front page of the system
+            release: Basic_1
+    - name: Organizer
+      description: manage tournaments
+      requirements:
+          - id: fr.org.01
+            description: As a tournament organizer I want to create tournament with Swiss system within my space
+            release: Basic_1
+          - id: fr.org.02
+            description: As a tournament organizer I want to have an option to make tournament registration open to any team
+            release: Basic_1
+          - id: fr.org.03
+            description: As a tournament organizer I want to have an option to invite teams for the tournament
+            release:
+          - id: fr.org.04
+            description: |
+                As a tournament organizer I need to setup next parameters during creation:
+                    * tournament start date
+                    * tournament end date
+                    * tournament type
+                    * TODO: specify more settings
+            release: Basic_1
+          - id: fr.org.05
+            description: |
+                In order to maintain tournaments the system should support next tournament types:
+                    * Bullet
+                    * Blitz
+                    * Rapid
+                    * Armageddon
+                Note: support at least one for release Basic_1
+            release: Basic_1
+                    
+    - name: Live game
+      description: Displaying of live games within tournament/space
+      requirements:
+          - id: fr.live.01
+            description: |
+                In order to spectate games as a spectator I want to see live board with current 
+                games list within tournament/space
+            release: Basic_1
+          - id: fr.live.02
+            description: |
+                In order to spectate games as a spectator I need to have a public link to the game
+            release: Basic_1
+    - name: Team
+      description: Playing in tournament as a team
+      requirements:
+          - id: fr.team.01
+            description: As a participant I want to play within one specific team as a team member
+            release: Basic_1
+          - id: fr.team.02
+            description: As a team member I need to accept invitation to the team for each tournament separately
+            release:
+          - id: fr.team.03
+            description: As a team member I want to have ability to leave the team not less than 30 minutes before the tournament start
+            release:
+          - id: fr.team.04
+            description: As a team member I want to see separete live board with matches of my teammates
+            release:
+          - id: fr.team.05
+            description: As a participant I want to have ability to play with the team of one player (TODO fix me if it is a mistake)
+            release: Basic_1
+          - id: fr.team.06
+            description: As a participant I want to have ability to create my own team within my space
+            release: Basic_1
+          - id: fr.team.07
+            description: As a team leader I need to register my team to the tournament
+            release: Basic_1
+          - id: fr.team.08
+            description: As a team leader I need to fill participants of my team for the tournament
+            release: Basic_1
+          - id: fr.team.09
+            description: |
+                As a team leader I need to have ability to copy team from previous tournament to new one
+                to avoid filling it once again
+            release: Basic_1
+          - id: fr.team.10
+            description: As a participant I cannot accept more than one invitation to the team (for separate tournament)
+            release: Basic_1
+          - id: fr.team.11
+            description: |
+                As a team leader I want to have an ability to retrieve the team specification from external system
+                (for example - Lichess)
+            release:
+    - name: Account
+      description: Access to the user account in the system
+      requirements:
+          - id: fr.account.01
+            description: |
+                 To support account functionality the system should support two types of login:
+                 1. Login through registration inside the system with email and password
+                 2. Login using external chess system
+                 (note: for Basic_1 release we should support only manual registration with password
+            release: Basic_1
+          - id: fr.account.02
+            description: |
+                As an admin I need to be registered inside system with login and password
+                and granted with rights to access advanced functionality
+            release: Basic_1
+          - id: fr.account.03
+            description: |
+                As registered inside system I need to have an ability to specify information
+                about my accounts in external chess systems to be able to participate in tournaments
+            release: Basic_1
+          - id: fr.account.04
+            description: |
+                To be registered inside the system user need to specify:
+                * e-mail address
+                * password
+                * password confirmation
+                * name
+                * surname
+                * nickname
+                * date of birth (to display age inside system [*TODO* delete me if it is redundant])
+            release: Basic_1
+          - id: fr.account.05
+            description: |
+                To login to the system via external chess system account browser should extract
+                that information from cookies
+            release:
+          - id: fr.account.06
+            description: |
+                To login to the system via external chess system account I (as the participant) want to
+                have an ability to specify username manually. But I have to add some extra information for security
+                reasons. Such information will be investigated during development and can vary from system to system.
+                It should be retrieved through API and compared with specified by user.
+                (Note: we understand that it is not secure enough, but we don't want to obligate users
+                to register separate account with a lot of stuff filling)
+            release:
+    - name: Admin
+      description: Advanced management of the system
+      requirements:
+          - id: fr.admin.01
+            description: As an admin I want to have an ability to grant another user admin rights
+            release: Basic_1
+          - id: fr.admin.02
+            description: Only registered user (with password) can be granted with admin rights
+            release: Basic_1
+          - id: fr.admin.03
+            description: As an admin I want to have an ability to change settings for any tournament in the system
+            release: Basic_1
+          - id: fr.admin.04
+            description: As an admin I want to have an ability to change settings for any user account in the system
+            release: Basic_1
+    - name: Tournament
+      description: Tournament execution details
+      requirements: [] # To be done

@@ -1,0 +1,61 @@
+= {{ project_name }} project requirements
+{{ author }}
+
+`release {{ release }}`
+
+`version {{ version }}`
+
+'''
+
+Repo: https://github.com/velter17/SwissChessLeague
+
+== Description
+{{ description }}
+
+== Key stakeholders
+
+[cols="1,1,1"]
+|===
+| Name | Description | Responsibility
+
+{% for user in stakeholders %}
+
+| {{ user.name }}
+| {{ user.description }}
+| {{ user.responsibility }}
+
+{% endfor %}
+|===
+
+== Functional requirements
+
+{% for feature_idx, feature in enumerate(reqs) %}
+
+=== {{ feature_idx + 1 }}. Feature "{{ feature.name }}"
+{{ feature.description }}
+
+{% for req_idx, req in enumerate(feature.requirements) %}
+
+==== {{ feature_idx + 1 }}.{{ req_idx + 1 }}. Requirement _{{ req.id }}_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | {{ req.id }}
+| *Release* |{{ req.release }} 
+|===
+.Description
+----
+{{ req.description }}
+----
+
+====
+
+{% endfor %}
+
+***
+***
+***
+
+{% endfor %}
