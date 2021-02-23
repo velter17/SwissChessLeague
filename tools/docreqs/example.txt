@@ -1,0 +1,2 @@
+python3 docreqs.py -i ../../doc/reqs/requirements.yml --o res.adoc -t templates/req_template.adoc -r Basic_1
+asciidoctor res.adoc

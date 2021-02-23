@@ -1,0 +1,578 @@
+= SwissChessLeague project requirements
+Compote team
+
+`release Basic_1`
+
+`version 0.1`
+
+'''
+
+Repo: https://github.com/velter17/SwissChessLeague
+
+== Description
+Chess project to support swiss-system tournaments
+
+== Key stakeholders
+
+[cols="1,1,1"]
+|===
+| Name | Description | Responsibility
+
+
+
+| organizer
+| Manager of the tournament
+| To create and manage the tournaments
+
+
+
+| team-leader
+| selected team member from the team as leader
+| register command for tournament
+
+
+
+| participant
+| participant of tournament as a part of the team
+| play the game with opponent from another team
+
+
+
+| spectator
+| any user who is not participating in the tournament right now
+| select any live game to spectate
+
+
+
+| support
+| admin account to manage tournaments
+| handle complicated cases that are not possible to deal with organizer account
+
+
+|===
+
+== Functional requirements
+
+
+
+=== 1. Feature "League Space"
+manage tournaments within separate space
+
+
+
+==== 1.1. Requirement _fr.space.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.space.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a tournament organizer I want to have separate space to manage tournaments
+----
+
+====
+
+
+
+==== 1.2. Requirement _fr.space.03_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.space.03
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a participant or spectator I want to see available spaces in the front page of the system
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 2. Feature "Organizer"
+manage tournaments
+
+
+
+==== 2.1. Requirement _fr.org.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.org.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a tournament organizer I want to create tournament with Swiss system within my space
+----
+
+====
+
+
+
+==== 2.2. Requirement _fr.org.02_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.org.02
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a tournament organizer I want to have an option to make tournament registration open to any team
+----
+
+====
+
+
+
+==== 2.3. Requirement _fr.org.04_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.org.04
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a tournament organizer I need to setup next parameters during creation:
+    * tournament start date
+    * tournament end date
+    * tournament type
+    * TODO: specify more settings
+
+----
+
+====
+
+
+
+==== 2.4. Requirement _fr.org.05_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.org.05
+| *Release* |Basic_1 
+|===
+.Description
+----
+In order to maintain tournaments the system should support next tournament types:
+    * Bullet
+    * Blitz
+    * Rapid
+    * Armageddon
+Note: support at least one for release Basic_1
+
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 3. Feature "Live game"
+Displaying of live games within tournament/space
+
+
+
+==== 3.1. Requirement _fr.live.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.live.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+In order to spectate games as a spectator I want to see live board with current 
+games list within tournament/space
+
+----
+
+====
+
+
+
+==== 3.2. Requirement _fr.live.02_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.live.02
+| *Release* |Basic_1 
+|===
+.Description
+----
+In order to spectate games as a spectator I need to have a public link to the game
+
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 4. Feature "Team"
+Playing in tournament as a team
+
+
+
+==== 4.1. Requirement _fr.team.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a participant I want to play within one specific team as a team member
+----
+
+====
+
+
+
+==== 4.2. Requirement _fr.team.05_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.05
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a participant I want to have ability to play with the team of one player (TODO fix me if it is a mistake)
+----
+
+====
+
+
+
+==== 4.3. Requirement _fr.team.06_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.06
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a participant I want to have ability to create my own team within my space
+----
+
+====
+
+
+
+==== 4.4. Requirement _fr.team.07_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.07
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a team leader I need to register my team to the tournament
+----
+
+====
+
+
+
+==== 4.5. Requirement _fr.team.08_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.08
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a team leader I need to fill participants of my team for the tournament
+----
+
+====
+
+
+
+==== 4.6. Requirement _fr.team.09_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.09
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a team leader I need to have ability to copy team from previous tournament to new one
+to avoid filling it once again
+
+----
+
+====
+
+
+
+==== 4.7. Requirement _fr.team.10_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.team.10
+| *Release* |Basic_1 
+|===
+.Description
+----
+As a participant I cannot accept more than one invitation to the team (for separate tournament)
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 5. Feature "Account"
+Access to the user account in the system
+
+
+
+==== 5.1. Requirement _fr.account.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.account.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+To support account functionality the system should support two types of login:
+1. Login through registration inside the system with email and password
+2. Login using external chess system
+(note: for Basic_1 release we should support only manual registration with password
+
+----
+
+====
+
+
+
+==== 5.2. Requirement _fr.account.02_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.account.02
+| *Release* |Basic_1 
+|===
+.Description
+----
+As an admin I need to be registered inside system with login and password
+and granted with rights to access advanced functionality
+
+----
+
+====
+
+
+
+==== 5.3. Requirement _fr.account.03_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.account.03
+| *Release* |Basic_1 
+|===
+.Description
+----
+As registered inside system I need to have an ability to specify information
+about my accounts in external chess systems to be able to participate in tournaments
+
+----
+
+====
+
+
+
+==== 5.4. Requirement _fr.account.04_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.account.04
+| *Release* |Basic_1 
+|===
+.Description
+----
+To be registered inside the system user need to specify:
+* e-mail address
+* password
+* password confirmation
+* name
+* surname
+* nickname
+* date of birth (to display age inside system [*TODO* delete me if it is redundant])
+
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 6. Feature "Admin"
+Advanced management of the system
+
+
+
+==== 6.1. Requirement _fr.admin.01_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.admin.01
+| *Release* |Basic_1 
+|===
+.Description
+----
+As an admin I want to have an ability to grant another user admin rights
+----
+
+====
+
+
+
+==== 6.2. Requirement _fr.admin.02_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.admin.02
+| *Release* |Basic_1 
+|===
+.Description
+----
+Only registered user (with password) can be granted with admin rights
+----
+
+====
+
+
+
+==== 6.3. Requirement _fr.admin.03_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.admin.03
+| *Release* |Basic_1 
+|===
+.Description
+----
+As an admin I want to have an ability to change settings for any tournament in the system
+----
+
+====
+
+
+
+==== 6.4. Requirement _fr.admin.04_
+
+====
+
+[cols="1h,1]
+|===
+| *ID* | fr.admin.04
+| *Release* |Basic_1 
+|===
+.Description
+----
+As an admin I want to have an ability to change settings for any user account in the system
+----
+
+====
+
+
+
+***
+***
+***
+
+
+
+=== 7. Feature "Tournament"
+Tournament execution details
+
+
+
+***
+***
+***
+
